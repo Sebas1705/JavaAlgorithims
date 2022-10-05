@@ -1,6 +1,6 @@
 package com.sebss.DataStructures.Lists.Linked_List;
 
-import com.sebss.DataStructures.CollectionS;
+import com.sebss.DataStructures.Interfaces.CollectionS;
 import com.sebss.DataStructures.Lists.Linked_List.Nodes.DNode;
 
 public class DoubleCircularLinked_List<T> extends DoubleLinked_List<T> {

@@ -1,7 +1,7 @@
 package com.sebss.DataStructures.Lists.Array_List;
 
-import com.sebss.DataStructures.CollectionS;
-import com.sebss.DataStructures.Lists.ListS;
+import com.sebss.DataStructures.Interfaces.CollectionS;
+import com.sebss.DataStructures.Interfaces.ListS;
 
 public class Array_List<T> implements ListS<T>{
 
