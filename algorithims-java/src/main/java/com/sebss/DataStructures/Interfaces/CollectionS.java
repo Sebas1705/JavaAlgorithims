@@ -1,6 +1,8 @@
 package com.sebss.DataStructures.Interfaces;
 
-public interface CollectionS<T> {
+import com.sebss.Interfaces.Printable;
+
+public interface CollectionS<T> extends Printable{
     public boolean isEmpty();
     public int size();
     public Object[] toArray();

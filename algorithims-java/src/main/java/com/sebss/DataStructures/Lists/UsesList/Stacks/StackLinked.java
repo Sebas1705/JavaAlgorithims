@@ -14,14 +14,13 @@ public class StackLinked<T> implements Stacks<T>{
     public StackLinked(){
         stack=new SimpleLinked_List<>();
     }
+    @SuppressWarnings("unchecked")
     public StackLinked(T ...e){
         this();
         for(T x : e) push(x);
     }
-    @SuppressWarnings("unchecked")
     public StackLinked(CollectionS<T> c){
-        this();
-        for(T x : (T[]) c.toArray()) push(x);
+        stack=new SimpleLinked_List<T>(c);
     }
     //End of Constuctors.
     
@@ -44,5 +43,22 @@ public class StackLinked<T> implements Stacks<T>{
     public boolean pushAll(CollectionS<T> c) {return stack.addAll(c);}
     @Override
     public T pop() {return stack.removeAt(stack.size()-1);}
+    @Override
+    public String toString(){
+        String s = "->StackLinked("+size()+"):\n{";
+        if(stack.size()!=0) for(int i=0;i<size();i++)s+=(i!=size()-1)?stack.get(i)+"|":stack.get(i);
+        else s+="Empty\n";
+        s+="}\n->End of StackLinked.\n";
+        return s;
+    }
+    @Override
+    public void print(){System.out.println(this);}
+    public void printAsArray(){
+        String s ="StackLinked: {";
+        if(stack.size()!=0) for(int i=0;i<size();i++)s+=(i!=size()-1)?stack.get(i)+"|":stack.get(i);
+        else s+="Empty";
+        s+="} size("+size()+")"; 
+        System.out.println(s);
+    }
     //End of Overrides.
 }

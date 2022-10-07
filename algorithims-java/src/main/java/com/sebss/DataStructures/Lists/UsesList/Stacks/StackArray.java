@@ -14,14 +14,13 @@ public class StackArray<T> implements Stacks<T>{
     public StackArray(){
         stack=new Array_List<>();
     }
+    @SuppressWarnings("unchecked")
     public StackArray(T ...e){
         this();
         for(T x : e) push(x);
     }
-    @SuppressWarnings("unchecked")
     public StackArray(CollectionS<T> c){
-        this();
-        for(T x : (T[]) c.toArray()) push(x);
+        stack=new Array_List<T>(c);
     }
     //End of Constuctors.
     
@@ -44,6 +43,23 @@ public class StackArray<T> implements Stacks<T>{
     public boolean pushAll(CollectionS<T> c) {return stack.addAll(c);}
     @Override
     public T pop() {return stack.removeAt(stack.size()-1);}
+    @Override
+    public String toString(){
+        String s = "->StackArray("+size()+"):\n{";
+        if(stack.size()!=0) for(int i=0;i<size();i++)s+=(i!=size()-1)?stack.get(i)+"|":stack.get(i);
+        else s+="Empty\n";
+        s+="}\n->End of StackArray.\n";
+        return s;
+    }
+    @Override
+    public void print(){System.out.println(this);}
+    public void printAsArray(){
+        String s ="StackArray: {";
+        if(stack.size()!=0) for(int i=0;i<size();i++)s+=(i!=size()-1)?stack.get(i)+"|":stack.get(i);
+        else s+="Empty";
+        s+="} size("+size()+")"; 
+        System.out.println(s);
+    }
     //End of Overrides.
 
 }

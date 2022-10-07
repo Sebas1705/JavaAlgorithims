@@ -1,6 +1,6 @@
 package com.sebss.DataStructures.Lists.Linked_List.Nodes;
 
-import com.sebss.DataStructures.Interfaces.Printable;
+import com.sebss.Interfaces.Printable;
 
 public class SNode<T> implements Printable{
     
