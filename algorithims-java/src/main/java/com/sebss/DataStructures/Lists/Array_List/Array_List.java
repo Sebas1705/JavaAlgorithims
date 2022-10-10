@@ -42,7 +42,10 @@ public class Array_List<T> implements ListS<T>{
         return temp;
     }
     private int search(T e,int start){
-        for(int i=start;i<size;i++) if(array[i].equals(e)) return i;
+        for(int i=start;i<size;i++){
+            if(array[i]==null) continue;
+            if(array[i].equals(e)) return i;
+        }
         return -1;
     }
     private void growCapacity(){
