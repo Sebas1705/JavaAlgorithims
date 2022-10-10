@@ -1,8 +1,9 @@
-package com.sebss.DataStructures.Lists;
+package com.sebss.DataStructures.Trees;
 
 import com.sebss.DataStructures.Interfaces.CollectionS;
+import com.sebss.DataStructures.Lists.ListS;
 
-public interface ListS<T> extends CollectionS<T>{
+public interface TreeS<T> {
     public boolean add(T e);
     public boolean addAll(CollectionS<T> c);
     public boolean remove(T e);

@@ -1,7 +1,7 @@
 package com.sebss.DataStructures.Lists.Array_List;
 
 import com.sebss.DataStructures.Interfaces.CollectionS;
-import com.sebss.DataStructures.Interfaces.ListS;
+import com.sebss.DataStructures.Lists.ListS;
 
 public class Array_List<T> implements ListS<T>{
 
@@ -18,6 +18,10 @@ public class Array_List<T> implements ListS<T>{
         array=new Object[CAP_GROWTH];
         size=0;
         capacity=CAP_GROWTH;
+    }
+    public Array_List(int defaultSize, T defaultValue) {
+        this();
+        for(int i=0;i<defaultSize;i++)add(defaultValue);
     }
     @SuppressWarnings("unchecked")
     public Array_List(CollectionS<T> c){
@@ -157,7 +161,7 @@ public class Array_List<T> implements ListS<T>{
     }
     @SuppressWarnings("unchecked")
     @Override
-    public boolean addAll(int i, CollectionS<? extends T> c) {
+    public boolean addAll(int i, CollectionS<T> c) {
         if(i<0||i>size) throw new IllegalArgumentException("IllegalArguments: addAll(int i, CollectionS<? extends T> c) from Array_List");
         Object[] arr=c.toArray();
         arr=reverse(arr);

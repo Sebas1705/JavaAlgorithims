@@ -1,5 +1,7 @@
-package com.sebss.DataStructures.Interfaces;
+package com.sebss.DataStructures.Lists.UsesList.Interfaces;
 
+import com.sebss.DataStructures.Interfaces.CollectionS;
+import com.sebss.DataStructures.Lists.ListS;
 import com.sebss.DataStructures.Lists.UsesList.PriorityList.PriorityObject;
 
 public interface PriorityS<T> extends CollectionS<T> {

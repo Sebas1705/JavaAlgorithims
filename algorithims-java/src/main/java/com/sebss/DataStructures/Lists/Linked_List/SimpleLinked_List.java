@@ -1,7 +1,7 @@
 package com.sebss.DataStructures.Lists.Linked_List;
 
 import com.sebss.DataStructures.Interfaces.CollectionS;
-import com.sebss.DataStructures.Interfaces.ListS;
+import com.sebss.DataStructures.Lists.ListS;
 import com.sebss.DataStructures.Lists.Linked_List.Nodes.SNode;
 
 public class SimpleLinked_List<T> implements ListS<T>{
@@ -18,10 +18,19 @@ public class SimpleLinked_List<T> implements ListS<T>{
         start=null;
         last=null;
     }
+    public SimpleLinked_List(int defaultSize, T defaultValue) {
+        this();
+        for(int i=0;i<defaultSize;i++)add(defaultValue);
+    }
     @SuppressWarnings("unchecked")
-    public SimpleLinked_List(CollectionS<? extends T> c){
+    public SimpleLinked_List(CollectionS<T> c){
         this();
         for(T e : (T[]) c.toArray())add(e);
+    }
+    @SuppressWarnings("unchecked")
+    public SimpleLinked_List(T...e){
+        this();
+        for(T x : (T[]) e)add(x);
     }
     //End of constructor.
 
@@ -156,7 +165,7 @@ public class SimpleLinked_List<T> implements ListS<T>{
         }
     }
     @Override
-    public boolean addAll(int i, CollectionS<? extends T> c) {
+    public boolean addAll(int i, CollectionS<T> c) {
         if(i<0||i>size) throw new IllegalArgumentException("IllegalArguments: addAll(int i, CollectionS<? extends T> c) from SimpleLinked_List");
         SimpleLinked_List<T> l = new SimpleLinked_List<T>(c);
         for(int j=0;j<size;j++){

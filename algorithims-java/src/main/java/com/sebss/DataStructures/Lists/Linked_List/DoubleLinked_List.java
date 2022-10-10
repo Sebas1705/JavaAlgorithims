@@ -1,7 +1,7 @@
 package com.sebss.DataStructures.Lists.Linked_List;
 
 import com.sebss.DataStructures.Interfaces.CollectionS;
-import com.sebss.DataStructures.Interfaces.ListS;
+import com.sebss.DataStructures.Lists.ListS;
 import com.sebss.DataStructures.Lists.Linked_List.Nodes.DNode;
 
 public class DoubleLinked_List<T> implements ListS<T>{
@@ -17,10 +17,19 @@ public class DoubleLinked_List<T> implements ListS<T>{
         start=null;
         last=null;
     }
+    public DoubleLinked_List(int defaultSize, T defaultValue) {
+        this();
+        for(int i=0;i<defaultSize;i++)add(defaultValue);
+    }
     @SuppressWarnings("unchecked")
-    public DoubleLinked_List(CollectionS<? extends T> c){
+    public DoubleLinked_List(CollectionS<T> c){
         this();
         for(T e : (T[]) c.toArray())add(e);
+    }
+    @SuppressWarnings("unchecked")
+    public DoubleLinked_List(T...e){
+        this();
+        for(T x : e)add(x);
     }
     //End of constructor.
 
@@ -165,7 +174,7 @@ public class DoubleLinked_List<T> implements ListS<T>{
         }
     }
     @Override
-    public boolean addAll(int i, CollectionS<? extends T> c) {
+    public boolean addAll(int i, CollectionS<T> c) {
         if(i<0||i>size) throw new IllegalArgumentException("IllegalArguments: addAll(int i, CollectionS<? extends T> c) from DoubleLinked_List");
         DoubleLinked_List<T> l = new DoubleLinked_List<T>(c);
         for(int j=0;j<size;j++){

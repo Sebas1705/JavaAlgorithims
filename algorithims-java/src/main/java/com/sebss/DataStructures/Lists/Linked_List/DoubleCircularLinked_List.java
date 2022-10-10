@@ -7,14 +7,17 @@ public class DoubleCircularLinked_List<T> extends DoubleLinked_List<T> {
     
     //Constructor:
     public DoubleCircularLinked_List(){
-        size=0;
-        start=null;
-        last=null;
+        super();
+    }
+    public DoubleCircularLinked_List(int defaultSize, T defaultValue) {
+        super(defaultSize, defaultValue);
+    }
+    public DoubleCircularLinked_List(CollectionS<T> c){
+        super(c);
     }
     @SuppressWarnings("unchecked")
-    public DoubleCircularLinked_List(CollectionS<? extends T> c){
-        this();
-        for(T e : (T[]) c.toArray())add(e);
+    public DoubleCircularLinked_List(T...e){
+        super(e);
     }
     //End of constructor.
 
@@ -111,7 +114,7 @@ public class DoubleCircularLinked_List<T> extends DoubleLinked_List<T> {
         }
     }
     @Override
-    public boolean addAll(int i, CollectionS<? extends T> c) {
+    public boolean addAll(int i, CollectionS<T> c) {
         if(i<0||i>size) throw new IllegalArgumentException("IllegalArguments: addAll(int i, CollectionS<? extends T> c) from DoubleCircularLinked_List");
         DoubleCircularLinked_List<T> l = new DoubleCircularLinked_List<T>(c);
         for(int j=0;j<size;j++){

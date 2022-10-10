@@ -10,11 +10,17 @@ public class SimpleCircularLinked_List<T> extends SimpleLinked_List<T>{
     public SimpleCircularLinked_List(){
         super();
     }
-    @SuppressWarnings("unchecked")
-    public SimpleCircularLinked_List(CollectionS<? extends T> c){
-        super();
-        for(T e : (T[]) c.toArray())add(e);
+    public SimpleCircularLinked_List(CollectionS<T> c){
+        super(c);
     }
+    public SimpleCircularLinked_List(int defaultSize, T defaultValue){
+        super(defaultSize, defaultValue);
+    }
+    @SuppressWarnings("unchecked")
+    public SimpleCircularLinked_List(T...e){
+        super(e);
+    }
+
     //End of constructor.
 
     //Privates:
@@ -62,7 +68,7 @@ public class SimpleCircularLinked_List<T> extends SimpleLinked_List<T>{
         }
     }
     @Override
-    public boolean addAll(int i, CollectionS<? extends T> c) {
+    public boolean addAll(int i, CollectionS<T> c) {
         if(i<0||i>size) throw new IllegalArgumentException("IllegalArguments: addAll(int i, CollectionS<? extends T> c) from SimpleCircularLinked_List");
         SimpleLinked_List<T> l = new SimpleLinked_List<T>(c);
         for(int j=0;j<size;j++){
