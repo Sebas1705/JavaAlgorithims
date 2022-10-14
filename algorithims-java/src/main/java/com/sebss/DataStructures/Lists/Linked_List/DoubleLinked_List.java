@@ -67,6 +67,13 @@ public class DoubleLinked_List<T> implements ListS<T>{
     }
     //End of Privates.
 
+    //Publics:
+    public int lastIndexOf(T e) {
+        for(int i=size-1;i>=0;i--)if(e.equals(getNode(i).getElement())) return i;
+        return -1;
+    }
+    //End of publics.
+
     //Overrides:
     @Override
     public boolean add(T e) {
@@ -195,11 +202,6 @@ public class DoubleLinked_List<T> implements ListS<T>{
     @Override
     public int indexOf(T e) {
         return search(e,start,0);
-    }
-    @Override
-    public int lastIndexOf(T e) {
-        for(int i=size-1;i>=0;i--)if(e.equals(getNode(i).getElement())) return i;
-        return -1;
     }
     @Override
     public T removeAt(int i) {
