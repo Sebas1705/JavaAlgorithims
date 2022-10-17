@@ -12,7 +12,6 @@ public interface ListS<T> extends CollectionS<T>{
     public boolean addAll(int i, CollectionS<T> c);
     public T get(int i);
     public int indexOf(T e);
-    public int lastIndexOf(T e);
     public T removeAt(int i);
     public T set(int i, T e);
     public ListS<T> subList(int fi, int ti);

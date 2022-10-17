@@ -72,6 +72,18 @@ public class Array_List<T> implements ListS<T>{
     }
     //End of privates.
 
+    //Publics:
+    public int lastIndexOf(T e) {
+        if(search(e,0)==-1)return -1;
+        int index=0,x=0;
+        do{
+            index=x;
+            x=search(e,index+1);
+        }while(x!=-1);
+        return index;
+    }
+    //End of publics.
+
     //Overrides:
     @Override
     public boolean add(T e) {
@@ -180,16 +192,6 @@ public class Array_List<T> implements ListS<T>{
     @Override
     public int indexOf(T e) {
         return search(e,0);
-    }
-    @Override
-    public int lastIndexOf(T e) {
-        if(search(e,0)==-1)return -1;
-        int index=0,x=0;
-        do{
-            index=x;
-            x=search(e,index+1);
-        }while(x!=-1);
-        return index;
     }
     @SuppressWarnings("unchecked")
     @Override
